@@ -8,7 +8,7 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        $apt = Appointment::all();
+        $apt = Appointment::where('aptcategory', 'Clinic')->get();
 
         return response()->json([
             'status'=> 200,
@@ -18,8 +18,9 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-        $apt = new Appointment;
+        $apt = new Appointment();
         $apt->name = $request->name;
+        $apt->aptcategory = $request->aptcategory;
         $apt->aptdate = $request->aptdate;
         $apt->apttime = $request->apttime;
         $apt->aptpurpose = $request->aptpurpose;
@@ -31,6 +32,17 @@ class AppointmentController extends Controller
             'appointment' => $apt
         ];
 
-        return response()->json($data, 201);
+        return $apt->toJson();
+        //return response()->json($data, 201);
+    }
+
+    public function dental()
+    {
+        $apt = Appointment::where('aptcategory', 'Dental')->get();
+
+        return response()->json([
+            'status'=> 200,
+            'appointment'=> $apt,
+        ]);
     }
 }

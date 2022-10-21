@@ -14,4 +14,5 @@ Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
 
 Route::get('/appointment', [AppointmentController::class, 'index']);
+Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);

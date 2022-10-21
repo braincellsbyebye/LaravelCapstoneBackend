@@ -11,6 +11,7 @@ class Appointment extends Model
     protected $table = "appointment";
     protected $fillable = [
         'name',
+        'aptcategory',
         'aptdate',
         'apttime',
         'aptpurpose',
