@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('appointment', function (Blueprint $table) {
+        Schema::create('useraccount', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
             $table->string('fname');
             $table->string('lname');
-            $table->string('aptcategory');
-            $table->string('aptdate');
-            $table->string('apttime');
-            $table->string('aptpurpose');
-            $table->string('user_id');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointment');
+        Schema::dropIfExists('useraccount');
     }
 };

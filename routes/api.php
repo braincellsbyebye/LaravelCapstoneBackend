@@ -4,6 +4,7 @@ use App\Http\Controllers\API\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\UserAccountController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
@@ -20,6 +21,10 @@ Route::delete('delete-doctor/{id}', [DoctorController::class, 'destroy']);
 
 Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
+
+Route::post('mregister',[UserAccountController::class, 'register']);
+Route::post('mlogin',[UserAccountController::class, 'login']);
+Route::get('/useraccdetails', [UserAccountController::class, 'index']);
 
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);

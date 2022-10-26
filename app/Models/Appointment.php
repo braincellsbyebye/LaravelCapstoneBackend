@@ -10,10 +10,12 @@ class Appointment extends Model
     use HasFactory;
     protected $table = "appointment";
     protected $fillable = [
-        'name',
+        'fname',
+        'lname',
         'aptcategory',
         'aptdate',
         'apttime',
         'aptpurpose',
+        'user_id',
     ];
 }

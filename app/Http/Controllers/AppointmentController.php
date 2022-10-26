@@ -19,11 +19,13 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $apt = new Appointment();
-        $apt->name = $request->name;
+        $apt->fname = $request->fname;
+        $apt->lname = $request->lname;
         $apt->aptcategory = $request->aptcategory;
         $apt->aptdate = $request->aptdate;
         $apt->apttime = $request->apttime;
         $apt->aptpurpose = $request->aptpurpose;
+        $apt->user_id = $request->user_id;
 
         $apt->save();
 
