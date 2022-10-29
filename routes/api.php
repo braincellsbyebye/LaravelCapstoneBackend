@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\UserAccountController;
+use App\Http\Controllers\ReqMedController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
@@ -29,3 +30,9 @@ Route::get('/useraccdetails', [UserAccountController::class, 'index']);
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);
+
+Route::get('/medcert', [ReqMedController::class, 'index']);
+Route::post('/reqmed', [ReqMedController::class, 'store']);
+Route::get('/edit-medcert/{id}', [ReqMedController::class, 'edit']);
+Route::put('update-medcert/{id}', [ReqMedController::class, 'update']);
+Route::get('/medi/{id}', [ReqMedController::class, 'find']);
