@@ -36,3 +36,4 @@ Route::post('/reqmed', [ReqMedController::class, 'store']);
 Route::get('/edit-medcert/{id}', [ReqMedController::class, 'edit']);
 Route::put('update-medcert/{id}', [ReqMedController::class, 'update']);
 Route::get('/medi/{id}', [ReqMedController::class, 'find']);
+Route::delete('delete-medcert/{id}', [ReqMedController::class, 'destroy']);

@@ -99,4 +99,24 @@ class ReqMedController extends Controller
         }
 
     }
+
+    public function destroy($id)
+    {
+        $reqmed = ReqMed::find($id);
+        if($reqmed)
+        {
+            $reqmed->delete();
+            return response()->json([
+                'status'=> 200,
+                'message'=>'MedCert Deleted Successfully',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No MedCert ID Found',
+            ]);
+        }
+    }
 }

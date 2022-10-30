@@ -21,7 +21,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'name'=>'required|max:191',
+            'fname'=>'required|max:191',
+            'lname'=>'required|max:191',
             'bday'=>'required',
             'sex'=>'required',
             'phone'=>'required|max:10|min:10',
@@ -40,7 +41,8 @@ class StudentController extends Controller
         else
         {
             $student = new Student;
-            $student->name = $request->input('name');
+            $student->fname = $request->input('fname');
+            $student->lname = $request->input('lname');
             $student->bday = $request->input('bday');
             $student->sex = $request->input('sex');
             $student->phone = $request->input('phone');
@@ -80,7 +82,8 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'name'=>'required|max:191',
+            'fname'=>'required|max:191',
+            'lname'=>'required|max:191',
             'bday'=>'required',
             'sex'=>'required',
             'phone'=>'required|max:10|min:10',
@@ -103,7 +106,8 @@ class StudentController extends Controller
             if($student)
             {
 
-                $student->name = $request->input('name');
+                $student->fname = $request->input('fname');
+                $student->lname = $request->input('lname');
                 $student->bday = $request->input('bday');
                 $student->sex = $request->input('sex');
                 $student->phone = $request->input('phone');
