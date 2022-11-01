@@ -150,4 +150,28 @@ class StudentController extends Controller
             ]);
         }
     }
+    public function search($key)
+    {
+        return Student::where('fname', 'Like', "%$key%")->get();
+    }
+
+    public function num()
+    {
+        $student = Student::all();
+        $RC = Student::where('religion', 'Like', "RomanCatholic")->get();
+        $BA = Student::where('religion', 'Like', "BornAgain")->get();
+        $FE = Student::where('sex', 'Like', "Female")->get();
+
+        $wordCount = $student->count();
+        $RCC = $RC->count();
+        $BAC = $BA->count();
+        $FEC = $FE->count();
+
+
+        $data = [
+            $wordCount,$RCC,$BAC,$FEC
+        ];
+
+        return $data;
+    }
 }

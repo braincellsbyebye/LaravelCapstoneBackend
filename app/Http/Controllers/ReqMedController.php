@@ -80,24 +80,14 @@ class ReqMedController extends Controller
         }
     }
 
-    public function find($id)
+    public function find($key)
     {
-        $reqmed = ReqMed::find($id);
-        if($reqmed)
-        {
-            return response()->json([
-                'status'=> 200,
-                'reqmed' => $reqmed,
-            ]);
-        }
-        else
-        {
-            return response()->json([
-                'status'=> 404,
-                'message' => 'No Medical Request Found',
-            ]);
-        }
+        $reqmed = Reqmed::where('fname', 'Like', "%$key%")->get();
 
+        return response()->json([
+            'status'=> 200,
+            'reqmed'=>$reqmed,
+        ]);
     }
 
     public function destroy($id)

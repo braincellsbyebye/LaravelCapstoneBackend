@@ -9,8 +9,10 @@ use App\Http\Controllers\ReqMedController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
+Route::get('/count', [StudentController::class, 'num']);
 Route::get('/edit-student/{id}', [StudentController::class, 'edit']);
 Route::put('update-student/{id}', [StudentController::class, 'update']);
+Route::get('/search/{key}', [StudentController::class, 'search']);
 Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
 
 Route::get('/doctors', [DoctorController::class, 'index']);
