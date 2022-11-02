@@ -47,4 +47,14 @@ class AppointmentController extends Controller
             'appointment'=> $apt,
         ]);
     }
+
+    public function find($key)
+    {
+        $apt = Appointment::where('user_id', 'Like', "%$key%")->get();
+
+        return response()->json([
+            'status'=> 200,
+            'appointment'=>$apt,
+        ]);
+    }
 }

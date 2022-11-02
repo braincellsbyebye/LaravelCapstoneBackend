@@ -32,6 +32,7 @@ Route::get('/useraccdetails', [UserAccountController::class, 'index']);
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);
+Route::get('/apt/{id}', [AppointmentController::class, 'find']);
 
 Route::get('/medcert', [ReqMedController::class, 'index']);
 Route::post('/reqmed', [ReqMedController::class, 'store']);
