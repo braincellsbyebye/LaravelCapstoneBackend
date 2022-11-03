@@ -157,21 +157,44 @@ class StudentController extends Controller
 
     public function num()
     {
-        $student = Student::all();
         $RC = Student::where('religion', 'Like', "RomanCatholic")->get();
         $BA = Student::where('religion', 'Like', "BornAgain")->get();
-        $FE = Student::where('sex', 'Like', "Female")->get();
+        $IG = Student::where('religion', 'Like', "Iglesia")->get();
+        $PR = Student::where('religion', 'Like', "Prefer not to say")->get();
 
-        $wordCount = $student->count();
         $RCC = $RC->count();
         $BAC = $BA->count();
-        $FEC = $FE->count();
-
+        $IGG = $IG->count();
+        $PRR = $PR->count();
 
         $data = [
-            $wordCount,$RCC,$BAC,$FEC
+            $RCC,
+            $BAC,
+            $IGG,
+            $PRR,
         ];
 
         return $data;
+    }
+    public function numall()
+    {
+        $student = Student::all();
+        $test = $student->count();
+
+        return $test;
+    }
+    public function female()
+    {
+        $FE = Student::where('sex', 'Like', "Female")->get();
+        $test = $FE->count();
+
+        return $test;
+    }
+    public function male()
+    {
+        $FE = Student::where('sex', 'Like', "Male")->get();
+        $test = $FE->count();
+
+        return $test;
     }
 }
