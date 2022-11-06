@@ -31,6 +31,8 @@ Route::post('login',[UserController::class, 'login']);
 Route::post('mregister',[UserAccountController::class, 'register']);
 Route::post('mlogin',[UserAccountController::class, 'login']);
 Route::get('/useraccdetails', [UserAccountController::class, 'index']);
+Route::get('/edit/{id}', [UserAccountController::class, 'edit']);
+Route::put('/update-user/{id}', [UserAccountController::class, 'update']);
 
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);

@@ -44,4 +44,46 @@ class UserAccountController extends Controller
         } 
         return $useracc;
     }
+    public function edit($id)
+    {
+        $useracc = UserAccount::find($id);
+        if($useracc)
+        {
+            return response()->json([
+                'status'=> 200,
+                'useracc' => $useracc,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No User ID Found',
+            ]);
+        }
+
+    }
+    public function update(Request $request, $id)
+    {
+        $useracc = UserAccount::find($id);
+        if($useracc)
+        {
+            $useracc->username = $request->input('username');
+            $useracc->email = $request->input('email');
+            $useracc->password=Hash::make($request->input('password'));
+            $useracc->update();
+
+            return response()->json([
+                'status'=> 201,
+                'message'=>'User Updated Successfully',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No User ID Found',
+            ]);
+        }
+    }
 }
