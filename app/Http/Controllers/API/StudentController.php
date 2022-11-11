@@ -197,4 +197,73 @@ class StudentController extends Controller
 
         return $test;
     }
+    public function RC()
+    {
+        $RC = Student::where('religion', 'Like', "RomanCatholic")->get();
+        $RCC = $RC->count();
+        return $RCC;
+    }
+    public function BA()
+    {
+        $BA = Student::where('religion', 'Like', "BornAgain")->get();
+        $BAC = $BA->count();
+        return $BAC;
+    }
+    public function IG()
+    {
+        $IG = Student::where('religion', 'Like', "Iglesia")->get();
+        $IGG = $IG->count();
+        return $IGG;
+    }
+    public function PRR()
+    {
+        $PR = Student::where('religion', 'Like', "Prefer not to say")->get();
+        $PRR = $PR->count();
+        return $PRR;
+    }
+    public function cvs()
+    {
+        $RC = Student::where('cvs', 'Like', "Single")->get();
+        $BA = Student::where('cvs', 'Like', "Married")->get();
+        $IG = Student::where('cvs', 'Like', "Seperated")->get();
+        $PR = Student::where('cvs', 'Like', "Prefer not to say")->get();
+
+        $RCC = $RC->count();
+        $BAC = $BA->count();
+        $IGG = $IG->count();
+        $PRR = $PR->count();
+
+        $data = [
+            $RCC,
+            $BAC,
+            $IGG,
+            $PRR,
+        ];
+
+        return $data;
+    }
+    public function single()
+    {
+        $RC = Student::where('cvs', 'Like', "Single")->get();
+        $RCC = $RC->count();
+        return $RCC;
+    }
+    public function married()
+    {
+        $BA = Student::where('cvs', 'Like', "Married")->get();
+        $BAC = $BA->count();
+        return $BAC;
+    }
+    public function sep()
+    {
+        $IG = Student::where('cvs', 'Like', "Seperated")->get();
+        $IGG = $IG->count();
+        return $IGG;
+    }
+    public function pref()
+    {
+        $PR = Student::where('cvs', 'Like', "Prefer not to say")->get();
+        $PRR = $PR->count();
+        return $PRR;
+    }
 }

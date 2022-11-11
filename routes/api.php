@@ -6,6 +6,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\ReqMedController;
+use App\Http\Controllers\GuardianController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
@@ -18,12 +19,29 @@ Route::put('update-student/{id}', [StudentController::class, 'update']);
 Route::get('/search/{key}', [StudentController::class, 'search']);
 Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
 
+Route::get('/RC', [StudentController::class, 'RC']);
+Route::get('/BA', [StudentController::class, 'BA']);
+Route::get('/IG', [StudentController::class, 'IG']);
+Route::get('/PRR', [StudentController::class, 'PRR']);
+
+Route::get('/cvs', [StudentController::class, 'cvs']);
+
+Route::get('/single', [StudentController::class, 'single']);
+Route::get('/married', [StudentController::class, 'married']);
+Route::get('/sep', [StudentController::class, 'sep']);
+Route::get('/pref', [StudentController::class, 'pref']);
+
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::post('/add-doctor', [DoctorController::class, 'store']);
 Route::get('/edit-doctor/{id}', [DoctorController::class, 'edit']);
 Route::put('update-doctor/{id}', [DoctorController::class, 'update']);
 Route::delete('delete-doctor/{id}', [DoctorController::class, 'destroy']);
 
+Route::get('/guardian', [GuardianController::class, 'index']);
+Route::post('/add-guardian', [GuardianController::class, 'store']);
+Route::get('/edit-guardian/{id}', [GuardianController::class, 'edit']);
+Route::put('update-guardian/{id}', [GuardianController::class, 'update']);
+Route::delete('delete-guardian/{id}', [GuardianController::class, 'destroy']);
 
 Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
