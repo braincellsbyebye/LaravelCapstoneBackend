@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('aptdate');
             $table->string('apttime');
             $table->string('aptpurpose');
+            $table->string('aptverify');
             $table->string('user_id');
             $table->timestamps();
         });

@@ -42,6 +42,7 @@ Route::post('/add-guardian', [GuardianController::class, 'store']);
 Route::get('/edit-guardian/{id}', [GuardianController::class, 'edit']);
 Route::put('update-guardian/{id}', [GuardianController::class, 'update']);
 Route::delete('delete-guardian/{id}', [GuardianController::class, 'destroy']);
+Route::get('/search-guardian/{key}', [GuardianController::class, 'search']);
 
 Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
@@ -55,6 +56,8 @@ Route::put('/update-user/{id}', [UserAccountController::class, 'update']);
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);
+Route::get('/edit-apt/{id}', [AppointmentController::class, 'edit']);
+Route::put('/update-apt/{id}', [AppointmentController::class, 'update']);
 Route::get('/apt/{id}', [AppointmentController::class, 'find']);
 
 Route::get('/medcert', [ReqMedController::class, 'index']);

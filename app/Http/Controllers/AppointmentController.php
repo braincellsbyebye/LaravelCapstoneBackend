@@ -25,6 +25,7 @@ class AppointmentController extends Controller
         $apt->aptdate = $request->aptdate;
         $apt->apttime = $request->apttime;
         $apt->aptpurpose = $request->aptpurpose;
+        $apt->aptverify = $request->aptverify;
         $apt->user_id = $request->user_id;
 
         $apt->save();
@@ -36,6 +37,54 @@ class AppointmentController extends Controller
 
         return $apt->toJson();
         //return response()->json($data, 201);
+    }
+    public function edit($id)
+    {
+        $apt = Appointment::find($id);
+        if($apt)
+        {
+            return response()->json([
+                'status'=> 200,
+                'appointment' => $apt,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No Appointment ID Found',
+            ]);
+        }
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $apt = Appointment::find($id);
+        if($apt)
+        {
+            $apt->fname = $request->fname;
+            $apt->lname = $request->lname;
+            $apt->aptcategory = $request->aptcategory;
+            $apt->aptdate = $request->aptdate;
+            $apt->apttime = $request->apttime;
+            $apt->aptpurpose = $request->aptpurpose;
+            $apt->aptverify = $request->aptverify;
+            $apt->user_id = $request->user_id;
+            $apt->update();
+
+            return response()->json([
+                'status'=> 200,
+                'message'=>'Appointment Updated Successfully',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No Appointment ID Found',
+            ]);
+        }
     }
 
     public function dental()

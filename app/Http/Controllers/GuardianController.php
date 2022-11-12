@@ -98,4 +98,8 @@ class GuardianController extends Controller
             ]);
         }
     }
+    public function search($key)
+    {
+        return Guardian::where('student_id', 'Like', "%$key%")->get();
+    }
 }
