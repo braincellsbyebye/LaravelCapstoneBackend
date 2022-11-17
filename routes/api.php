@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\ReqMedController;
 use App\Http\Controllers\GuardianController;
+use App\Http\Controllers\MedicalRecordController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
@@ -66,3 +67,7 @@ Route::get('/edit-medcert/{id}', [ReqMedController::class, 'edit']);
 Route::put('update-medcert/{id}', [ReqMedController::class, 'update']);
 Route::get('/medi/{id}', [ReqMedController::class, 'find']);
 Route::delete('delete-medcert/{id}', [ReqMedController::class, 'destroy']);
+
+Route::get('/medrec', [MedicalRecordController::class, 'index']);
+Route::post('/addmedrec', [MedicalRecordController::class, 'store']);
+Route::get('/find-medrec/{id}', [MedicalRecordController::class, 'find']);
