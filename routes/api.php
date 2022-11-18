@@ -37,6 +37,7 @@ Route::post('/add-doctor', [DoctorController::class, 'store']);
 Route::get('/edit-doctor/{id}', [DoctorController::class, 'edit']);
 Route::put('update-doctor/{id}', [DoctorController::class, 'update']);
 Route::delete('delete-doctor/{id}', [DoctorController::class, 'destroy']);
+Route::get('/dcount', [DoctorController::class, 'doctorcount']);
 
 Route::get('/guardian', [GuardianController::class, 'index']);
 Route::post('/add-guardian', [GuardianController::class, 'store']);

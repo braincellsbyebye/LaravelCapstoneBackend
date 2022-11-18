@@ -126,4 +126,10 @@ class DoctorController extends Controller
             ]);
         }
     }
+    public function doctorcount()
+    {
+        $RC = Doctor::all();
+        $RCC = $RC->count();
+        return $RCC;
+    }
 }

@@ -25,6 +25,8 @@ class StudentController extends Controller
             'lname'=>'required|max:191',
             'bday'=>'required',
             'sex'=>'required',
+            'course' => 'required',
+            'yrlvl' => 'required',
             'phone'=>'required|max:10|min:10',
             'address'=>'required|max:191',
             'religion'=>'required|max:191',
@@ -45,7 +47,11 @@ class StudentController extends Controller
             $student->lname = $request->input('lname');
             $student->bday = $request->input('bday');
             $student->sex = $request->input('sex');
+            $student->course = $request->input('course');
+            $student->yrlvl = $request->input('yrlvl');
             $student->phone = $request->input('phone');
+            $student->cbc = $request->file('cbc')->store('cbc');
+            $student->uri = $request->file('uri')->store('uri');
             $student->address = $request->input('address');
             $student->religion = $request->input('religion');
             $student->cvs = $request->input('cvs');
@@ -86,6 +92,8 @@ class StudentController extends Controller
             'lname'=>'required|max:191',
             'bday'=>'required',
             'sex'=>'required',
+            'course' => 'required',
+            'yrlvl' => 'required',
             'phone'=>'required|max:10|min:10',
             'address'=>'required|max:191',
             'religion'=>'required|max:191',
@@ -110,6 +118,8 @@ class StudentController extends Controller
                 $student->lname = $request->input('lname');
                 $student->bday = $request->input('bday');
                 $student->sex = $request->input('sex');
+                $student->course = $request->input('course');
+                $student->yrlvl = $request->input('yrlvl');
                 $student->phone = $request->input('phone');
                 $student->address = $request->input('address');
                 $student->religion = $request->input('religion');

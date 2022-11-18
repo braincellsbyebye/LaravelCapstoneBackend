@@ -99,7 +99,10 @@ class AppointmentController extends Controller
 
     public function find($key)
     {
-        $apt = Appointment::where('user_id', 'Like', "%$key%")->get();
+        $apt = Appointment::where([
+            ['user_id', 'Like', "%$key%"],
+            ['aptverify', 'Like', "Accepted"]
+        ])->get();
 
         return response()->json([
             'status'=> 200,

@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('bday');
             $table->string('sex');
             $table->string('phone');
+            $table->string('course');
+            $table->string('yrlvl');
             $table->text('address');
+            $table->string('cbc');
+            $table->string('uri');
             $table->string('religion');
             $table->string('cvs');
             $table->timestamps();
