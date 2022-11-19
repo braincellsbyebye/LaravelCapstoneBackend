@@ -162,7 +162,7 @@ class StudentController extends Controller
     }
     public function search($key)
     {
-        return Student::where('fname', 'Like', "%$key%")->get();
+        return Student::where('id', 'Like', "%$key%")->get();
     }
 
     public function num()
