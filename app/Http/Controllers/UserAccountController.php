@@ -70,7 +70,6 @@ class UserAccountController extends Controller
         {
             $useracc->username = $request->input('username');
             $useracc->email = $request->input('email');
-            $useracc->password=Hash::make($request->input('password'));
             $useracc->update();
 
             return response()->json([
@@ -85,5 +84,27 @@ class UserAccountController extends Controller
                 'message' => 'No User ID Found',
             ]);
         }
+    }
+    public function updatepw(Request $request, $id) 
+    {
+        $useracc = UserAccount::find($id);
+        if($useracc)
+        {
+            $useracc->password=Hash::make($request->input('password'));
+            $useracc->update();
+
+            return response()->json([
+                'status'=> 201,
+                'message'=>'Password Updated Successfully',
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=> 404,
+                'message' => 'No Password ID Found',
+            ]);
+        }
+        
     }
 }
