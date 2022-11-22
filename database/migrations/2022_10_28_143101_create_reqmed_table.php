@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('verdict');
+            $table->string('doctor');
             $table->string('uid');
             $table->timestamps();
         });

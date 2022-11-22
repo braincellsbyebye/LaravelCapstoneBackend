@@ -22,6 +22,7 @@ class ReqMedController extends Controller
         $reqmed->fname = $request->fname;
         $reqmed->lname = $request->lname;
         $reqmed->verdict = $request->verdict;
+        $reqmed->doctor = $request->doctor;
         $reqmed->uid = $request->uid;
 
         $reqmed->save();
@@ -62,6 +63,7 @@ class ReqMedController extends Controller
             $reqmed->fname = $request->fname;
             $reqmed->lname = $request->lname;
             $reqmed->verdict = $request->verdict;
+            $reqmed->doctor = $request->doctor;
             $reqmed->uid = $request->uid;
 
             $reqmed->update();

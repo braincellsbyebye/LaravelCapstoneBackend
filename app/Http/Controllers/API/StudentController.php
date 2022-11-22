@@ -184,52 +184,76 @@ class StudentController extends Controller
             $PRR,
         ];
 
-        return $data;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $data
+        ]);
     }
     public function numall()
     {
         $student = Student::all();
         $test = $student->count();
 
-        return $test;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
     }
     public function female()
     {
         $FE = Student::where('sex', 'Like', "Female")->get();
         $test = $FE->count();
 
-        return $test;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
     }
     public function male()
     {
         $FE = Student::where('sex', 'Like', "Male")->get();
         $test = $FE->count();
 
-        return $test;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
     }
     public function RC()
     {
         $RC = Student::where('religion', 'Like', "RomanCatholic")->get();
         $RCC = $RC->count();
-        return $RCC;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $RCC
+        ]);
     }
     public function BA()
     {
         $BA = Student::where('religion', 'Like', "BornAgain")->get();
         $BAC = $BA->count();
-        return $BAC;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $BAC
+        ]);
     }
     public function IG()
     {
         $IG = Student::where('religion', 'Like', "Iglesia")->get();
         $IGG = $IG->count();
-        return $IGG;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $IGG
+        ]);
     }
     public function PRR()
     {
         $PR = Student::where('religion', 'Like', "Prefer not to say")->get();
         $PRR = $PR->count();
-        return $PRR;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $PRR
+        ]);
     }
     public function cvs()
     {
@@ -250,30 +274,45 @@ class StudentController extends Controller
             $PRR,
         ];
 
-        return $data;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $data
+        ]);
     }
     public function single()
     {
         $RC = Student::where('cvs', 'Like', "Single")->get();
         $RCC = $RC->count();
-        return $RCC;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $RCC
+        ]);
     }
     public function married()
     {
         $BA = Student::where('cvs', 'Like', "Married")->get();
         $BAC = $BA->count();
-        return $BAC;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $BAC
+        ]);
     }
     public function sep()
     {
         $IG = Student::where('cvs', 'Like', "Seperated")->get();
         $IGG = $IG->count();
-        return $IGG;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $IGG
+        ]);
     }
     public function pref()
     {
         $PR = Student::where('cvs', 'Like', "Prefer not to say")->get();
         $PRR = $PR->count();
-        return $PRR;
+        return response()->json([
+            'status'=> 200,
+            'all'=> $PRR
+        ]);
     }
 }
