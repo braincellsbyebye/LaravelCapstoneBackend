@@ -6,6 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -313,6 +314,79 @@ class StudentController extends Controller
         return response()->json([
             'status'=> 200,
             'all'=> $PRR
+        ]);
+    }
+    /*public function test()
+    {
+        $test = DB::table('students')
+        ->leftJoin('guardians', 'students.id', '=', 'guardians.student_id')
+        ->get();
+
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
+    }*/
+    public function yrlvl()
+    {
+        $first = Student::where('yrlvl', 'Like', "1stYear")->get();
+        $second = Student::where('yrlvl', 'Like', "2ndYear")->get();
+        $third = Student::where('yrlvl', 'Like', "3rdYear")->get();
+        $fourth = Student::where('yrlvl', 'Like', "4thYear")->get();
+        $fifth = Student::where('yrlvl', 'Like', "5thYear")->get();
+
+
+        $data = [
+            $first->count(),
+            $second->count(),
+            $third->count(),
+            $fourth->count(),
+            $fifth->count(),
+        ];
+
+        return response()->json([
+            'status'=> 200,
+            'all'=> $data
+        ]);
+    }
+    public function first()
+    {
+        $first = Student::where('yrlvl', 'Like', "1stYear")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $first
+        ]);
+    }
+    public function second()
+    {
+        $second = Student::where('yrlvl', 'Like', "2ndYear")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $second
+        ]);
+    }
+    public function third()
+    {
+        $third = Student::where('yrlvl', 'Like', "3rdYear")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $third
+        ]);
+    }
+    public function fourth()
+    {
+        $fourth = Student::where('yrlvl', 'Like', "4thYear")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $fourth
+        ]);
+    }
+    public function fifth()
+    {
+        $fifth = Student::where('yrlvl', 'Like', "5thYear")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $fifth
         ]);
     }
 }

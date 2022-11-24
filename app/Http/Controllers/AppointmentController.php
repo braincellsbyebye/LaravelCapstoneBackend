@@ -109,4 +109,24 @@ class AppointmentController extends Controller
             'appointment'=>$apt,
         ]);
     }
+
+    public function pending()
+    {
+        $IG = Appointment::where('aptverify', 'Like', "Processing")->get();
+        $IGG = $IG->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $IGG
+        ]);
+    }
+
+    public function accepted()
+    {
+        $IG = Appointment::where('aptverify', 'Like', "Accepted")->get();
+        $IGG = $IG->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $IGG
+        ]);
+    }
 }

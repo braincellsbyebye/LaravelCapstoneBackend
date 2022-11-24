@@ -28,7 +28,7 @@ class UserAccountController extends Controller
         $useracc->save();
 
         $data = [
-            'status' => true,
+            'status' => 201,
             'useracc' => $useracc
         ];
 

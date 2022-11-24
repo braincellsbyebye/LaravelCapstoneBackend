@@ -19,6 +19,14 @@ Route::get('/edit-student/{id}', [StudentController::class, 'edit']);
 Route::put('update-student/{id}', [StudentController::class, 'update']);
 Route::get('/search/{key}', [StudentController::class, 'search']);
 Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
+Route::get('/yrlvl', [StudentController::class, 'yrlvl']);
+
+Route::get('/first', [StudentController::class, 'first']);
+Route::get('/second', [StudentController::class, 'second']);
+Route::get('/third', [StudentController::class, 'third']);
+Route::get('/fourth', [StudentController::class, 'fourth']);
+Route::get('/fifth', [StudentController::class, 'fifth']);
+
 
 Route::get('/RC', [StudentController::class, 'RC']);
 Route::get('/BA', [StudentController::class, 'BA']);
@@ -48,6 +56,9 @@ Route::get('/search-guardian/{key}', [GuardianController::class, 'search']);
 
 Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
+Route::get('/users',[UserController::class, 'index']);
+Route::get('/edit-user/{id}',[UserController::class, 'edit']);
+Route::put('/verifyuser/{id}', [UserController::class, 'update']);
 
 Route::post('mregister',[UserAccountController::class, 'register']);
 Route::post('mlogin',[UserAccountController::class, 'login']);
@@ -56,12 +67,15 @@ Route::get('/edit/{id}', [UserAccountController::class, 'edit']);
 Route::put('/update-user/{id}', [UserAccountController::class, 'update']);
 Route::put('/update-pw/{id}', [UserAccountController::class, 'updatepw']);
 
+
 Route::get('/appointment', [AppointmentController::class, 'index']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);
 Route::get('/edit-apt/{id}', [AppointmentController::class, 'edit']);
 Route::put('/update-apt/{id}', [AppointmentController::class, 'update']);
 Route::get('/apt/{id}', [AppointmentController::class, 'find']);
+Route::get('/pending', [AppointmentController::class, 'pending']);
+Route::get('/accepted', [AppointmentController::class, 'accepted']);
 
 Route::get('/medcert', [ReqMedController::class, 'index']);
 Route::post('/reqmed', [ReqMedController::class, 'store']);
