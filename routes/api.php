@@ -20,6 +20,7 @@ Route::put('update-student/{id}', [StudentController::class, 'update']);
 Route::get('/search/{key}', [StudentController::class, 'search']);
 Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
 Route::get('/yrlvl', [StudentController::class, 'yrlvl']);
+Route::get('/course', [StudentController::class, 'course']);
 
 Route::get('/first', [StudentController::class, 'first']);
 Route::get('/second', [StudentController::class, 'second']);
@@ -27,6 +28,17 @@ Route::get('/third', [StudentController::class, 'third']);
 Route::get('/fourth', [StudentController::class, 'fourth']);
 Route::get('/fifth', [StudentController::class, 'fifth']);
 
+Route::get('/engineering', [StudentController::class, 'engineering']);
+Route::get('/maritime', [StudentController::class, 'maritime']);
+Route::get('/education', [StudentController::class, 'education']);
+Route::get('/nursing', [StudentController::class, 'nursing']);
+Route::get('/psychology', [StudentController::class, 'psychology']);
+Route::get('/architecture', [StudentController::class, 'architecture']);
+Route::get('/accountancy', [StudentController::class, 'accountancy']);
+Route::get('/aas', [StudentController::class, 'aas']);
+Route::get('/criminology', [StudentController::class, 'criminology']);
+Route::get('/ccms', [StudentController::class, 'ccms']);
+Route::get('/htm', [StudentController::class, 'htm']);
 
 Route::get('/RC', [StudentController::class, 'RC']);
 Route::get('/BA', [StudentController::class, 'BA']);

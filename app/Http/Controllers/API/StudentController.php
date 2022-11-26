@@ -28,7 +28,7 @@ class StudentController extends Controller
             'sex'=>'required',
             'course' => 'required',
             'yrlvl' => 'required',
-            'phone'=>'required|max:10|min:10',
+            'phone'=>'required|max:11|min:11',
             'address'=>'required|max:191',
             'religion'=>'required|max:191',
             'cvs'=>'required|max:191',
@@ -256,6 +256,7 @@ class StudentController extends Controller
             'all'=> $PRR
         ]);
     }
+    //Civil Status Chart
     public function cvs()
     {
         $RC = Student::where('cvs', 'Like', "Single")->get();
@@ -316,17 +317,7 @@ class StudentController extends Controller
             'all'=> $PRR
         ]);
     }
-    /*public function test()
-    {
-        $test = DB::table('students')
-        ->leftJoin('guardians', 'students.id', '=', 'guardians.student_id')
-        ->get();
-
-        return response()->json([
-            'status'=> 200,
-            'all'=> $test
-        ]);
-    }*/
+    //Year Level Chart
     public function yrlvl()
     {
         $first = Student::where('yrlvl', 'Like', "1stYear")->get();
@@ -387,6 +378,129 @@ class StudentController extends Controller
         return response()->json([
             'status'=> 200,
             'all'=> $fifth
+        ]);
+    }
+    //Course Chart
+    public function course()
+    {
+        $one = Student::where('course', 'Like', "Engineering")->get();
+        $two = Student::where('course', 'Like', "Maritime")->get();
+        $three = Student::where('course', 'Like', "Education")->get();
+        $four = Student::where('course', 'Like', "Nursing")->get();
+        $five = Student::where('course', 'Like', "Psychology")->get();
+        $six = Student::where('course', 'Like', "Architecture")->get();
+        $seven = Student::where('course', 'Like', "Accountancy")->get();
+        $eight = Student::where('course', 'Like', "Arts and Science")->get();
+        $nine = Student::where('course', 'Like', "Criminology")->get();
+        $ten = Student::where('course', 'Like', "Computing and Multimedia Studies")->get();
+        $eleven = Student::where('course', 'Like', "Hospitality and Tourism Management")->get();
+
+
+        $data = [
+            $one->count(),
+            $two->count(),
+            $three->count(),
+            $four->count(),
+            $five->count(),
+            $six->count(),
+            $seven->count(),
+            $eight->count(),
+            $nine->count(),
+            $ten->count(),
+            $eleven->count(),
+        ];
+
+        return response()->json([
+            'status'=> 200,
+            'all'=> $data
+        ]);
+    }
+    public function engineering()
+    {
+        $one = Student::where('course', 'Like', "Engineering")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function maritime()
+    {
+        $one = Student::where('course', 'Like', "Maritime")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function education()
+    {
+        $one = Student::where('course', 'Like', "Education")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function nursing()
+    {
+        $one = Student::where('course', 'Like', "Nursing")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function psychology()
+    {
+        $one = Student::where('course', 'Like', "Psychology")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function architecture()
+    {
+        $one = Student::where('course', 'Like', "Architecture")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function accountancy()
+    {
+        $one = Student::where('course', 'Like', "Accountancy")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function aas()
+    {
+        $one = Student::where('course', 'Like', "Arts and Science")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function criminology()
+    {
+        $one = Student::where('course', 'Like', "Criminology")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function ccms()
+    {
+        $one = Student::where('course', 'Like', "Computing and Multimedia Studies")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
+        ]);
+    }
+    public function htm()
+    {
+        $one = Student::where('course', 'Like', "Hospitality and Tourism Management")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $one
         ]);
     }
 }
