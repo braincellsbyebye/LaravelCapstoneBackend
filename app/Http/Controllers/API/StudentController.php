@@ -503,4 +503,24 @@ class StudentController extends Controller
             'all'=> $one
         ]);
     }
+    //Join
+    public function joinsearch($key)
+    {
+        $users = DB::table('students')
+            ->join('guardians', 'students.id', '=', 'guardians.student_id')
+            ->where('student_id', 'Like', "%$key%")
+            ->get();
+        return $users;
+    }
+
+    public function join()
+    {
+        $users = DB::table('students')
+            ->join('guardians', 'students.id', '=', 'guardians.student_id')
+            ->get();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $users
+        ]);
+    }
 }

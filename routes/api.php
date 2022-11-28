@@ -19,6 +19,9 @@ Route::get('/edit-student/{id}', [StudentController::class, 'edit']);
 Route::put('update-student/{id}', [StudentController::class, 'update']);
 Route::get('/search/{key}', [StudentController::class, 'search']);
 Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
+Route::get('/join/{id}', [StudentController::class, 'joinsearch']);
+Route::get('/studjoin', [StudentController::class, 'join']);
+
 Route::get('/yrlvl', [StudentController::class, 'yrlvl']);
 Route::get('/course', [StudentController::class, 'course']);
 
@@ -65,6 +68,7 @@ Route::get('/edit-guardian/{id}', [GuardianController::class, 'edit']);
 Route::put('update-guardian/{id}', [GuardianController::class, 'update']);
 Route::delete('delete-guardian/{id}', [GuardianController::class, 'destroy']);
 Route::get('/search-guardian/{key}', [GuardianController::class, 'search']);
+
 
 Route::post('register',[UserController::class, 'register']);
 Route::post('login',[UserController::class, 'login']);
