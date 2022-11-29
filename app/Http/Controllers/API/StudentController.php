@@ -24,6 +24,7 @@ class StudentController extends Controller
         $validator = Validator::make($request->all(),[
             'fname'=>'required|max:191',
             'lname'=>'required|max:191',
+            'category'=>'required',
             'bday'=>'required',
             'sex'=>'required',
             'course' => 'required',
@@ -46,6 +47,7 @@ class StudentController extends Controller
             $student = new Student;
             $student->fname = $request->input('fname');
             $student->lname = $request->input('lname');
+            $student->category = $request->input('category');
             $student->bday = $request->input('bday');
             $student->sex = $request->input('sex');
             $student->course = $request->input('course');
@@ -91,11 +93,12 @@ class StudentController extends Controller
         $validator = Validator::make($request->all(),[
             'fname'=>'required|max:191',
             'lname'=>'required|max:191',
+            'category'=>'required',
             'bday'=>'required',
             'sex'=>'required',
             'course' => 'required',
             'yrlvl' => 'required',
-            'phone'=>'required|max:10|min:10',
+            'phone'=>'required|max:11|min:11',
             'address'=>'required|max:191',
             'religion'=>'required|max:191',
             'cvs'=>'required|max:191',
@@ -117,6 +120,7 @@ class StudentController extends Controller
 
                 $student->fname = $request->input('fname');
                 $student->lname = $request->input('lname');
+                $student->category = $request->input('category');
                 $student->bday = $request->input('bday');
                 $student->sex = $request->input('sex');
                 $student->course = $request->input('course');
@@ -213,6 +217,26 @@ class StudentController extends Controller
     public function male()
     {
         $FE = Student::where('sex', 'Like', "Male")->get();
+        $test = $FE->count();
+
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
+    }
+    public function student()
+    {
+        $FE = Student::where('category', 'Like', "Student")->get();
+        $test = $FE->count();
+
+        return response()->json([
+            'status'=> 200,
+            'all'=> $test
+        ]);
+    }
+    public function employee()
+    {
+        $FE = Student::where('category', 'Like', "Employee")->get();
         $test = $FE->count();
 
         return response()->json([
@@ -325,6 +349,7 @@ class StudentController extends Controller
         $third = Student::where('yrlvl', 'Like', "3rdYear")->get();
         $fourth = Student::where('yrlvl', 'Like', "4thYear")->get();
         $fifth = Student::where('yrlvl', 'Like', "5thYear")->get();
+        $sixth = Student::where('yrlvl', 'Like', "N/A")->get();
 
 
         $data = [
@@ -333,6 +358,7 @@ class StudentController extends Controller
             $third->count(),
             $fourth->count(),
             $fifth->count(),
+            $sixth->count(),
         ];
 
         return response()->json([
@@ -378,6 +404,14 @@ class StudentController extends Controller
         return response()->json([
             'status'=> 200,
             'all'=> $fifth
+        ]);
+    }
+    public function sixth()
+    {
+        $sixth = Student::where('yrlvl', 'Like', "N/A")->get()->count();
+        return response()->json([
+            'status'=> 200,
+            'all'=> $sixth
         ]);
     }
     //Course Chart

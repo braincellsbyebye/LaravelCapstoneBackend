@@ -25,11 +25,15 @@ Route::get('/studjoin', [StudentController::class, 'join']);
 Route::get('/yrlvl', [StudentController::class, 'yrlvl']);
 Route::get('/course', [StudentController::class, 'course']);
 
+Route::get('/studcount', [StudentController::class, 'student']);
+Route::get('/employeecount', [StudentController::class, 'employee']);
+
 Route::get('/first', [StudentController::class, 'first']);
 Route::get('/second', [StudentController::class, 'second']);
 Route::get('/third', [StudentController::class, 'third']);
 Route::get('/fourth', [StudentController::class, 'fourth']);
 Route::get('/fifth', [StudentController::class, 'fifth']);
+Route::get('/sixth', [StudentController::class, 'sixth']);
 
 Route::get('/engineering', [StudentController::class, 'engineering']);
 Route::get('/maritime', [StudentController::class, 'maritime']);
@@ -42,6 +46,7 @@ Route::get('/aas', [StudentController::class, 'aas']);
 Route::get('/criminology', [StudentController::class, 'criminology']);
 Route::get('/ccms', [StudentController::class, 'ccms']);
 Route::get('/htm', [StudentController::class, 'htm']);
+Route::get('/na', [StudentController::class, 'na']);
 
 Route::get('/RC', [StudentController::class, 'RC']);
 Route::get('/BA', [StudentController::class, 'BA']);
