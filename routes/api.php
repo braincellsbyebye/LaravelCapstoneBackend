@@ -90,6 +90,7 @@ Route::put('/update-pw/{id}', [UserAccountController::class, 'updatepw']);
 
 
 Route::get('/appointment', [AppointmentController::class, 'index']);
+Route::get('/allapt', [AppointmentController::class, 'all']);
 Route::get('/dentalappointment', [AppointmentController::class, 'dental']);
 Route::post('/addapt', [AppointmentController::class, 'store']);
 Route::get('/edit-apt/{id}', [AppointmentController::class, 'edit']);

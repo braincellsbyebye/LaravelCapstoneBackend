@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+    public function all()
+    {
+        $apt = Appointment::all();
+        return response()->json([
+            'status'=> 200,
+            'apt'=>$apt,
+        ]);
+    }
     public function index()
     {
         $apt = Appointment::where('aptcategory', 'Clinic')->get();
