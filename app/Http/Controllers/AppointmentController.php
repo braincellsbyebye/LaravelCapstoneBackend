@@ -38,13 +38,10 @@ class AppointmentController extends Controller
 
         $apt->save();
 
-        $data = [
-            'status' => true,
+        return response()->json([
+            'status' => 200,
             'appointment' => $apt
-        ];
-
-        return $apt->toJson();
-        //return response()->json($data, 201);
+        ]);
     }
     public function edit($id)
     {
