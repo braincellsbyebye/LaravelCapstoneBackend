@@ -105,7 +105,9 @@ Route::get('/edit-medcert/{id}', [ReqMedController::class, 'edit']);
 Route::put('update-medcert/{id}', [ReqMedController::class, 'update']);
 Route::get('/medi/{id}', [ReqMedController::class, 'find']);
 Route::delete('delete-medcert/{id}', [ReqMedController::class, 'destroy']);
+Route::get('/find-medcert/{id}', [ReqMedController::class, 'recentMedCert']);
 
 Route::get('/medrec', [MedicalRecordController::class, 'index']);
 Route::post('/addmedrec', [MedicalRecordController::class, 'store']);
 Route::get('/find-medrec/{id}', [MedicalRecordController::class, 'find']);
+

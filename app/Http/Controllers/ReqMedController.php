@@ -111,4 +111,15 @@ class ReqMedController extends Controller
             ]);
         }
     }
+    public function recentMedCert($key)
+    {
+        $medrec = ReqMed::where('uid', 'Like', "%$key%")
+        ->orderBy('created_at', 'desc')
+        ->limit(1)
+        ->get();
+        return response()->json([
+            'status'=> 200,
+            'medrec'=>$medrec
+        ]);
+    }
 }
