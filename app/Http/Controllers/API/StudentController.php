@@ -12,7 +12,7 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
+        $students = Student::orderBy('created_at', 'desc')->get();
         return response()->json([
             'status'=> 200,
             'students'=>$students,
@@ -167,7 +167,7 @@ class StudentController extends Controller
     }
     public function search($key)
     {
-        return Student::where('id', 'Like', "%$key%")->get();
+        return Student::where('lname', 'Like', "%$key%")->get();
     }
 
     public function num()
