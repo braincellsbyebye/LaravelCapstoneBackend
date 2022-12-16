@@ -8,6 +8,7 @@ use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\ReqMedController;
 use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\MedicalRecordController;
+use App\Http\Controllers\MedsController;
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
@@ -98,6 +99,7 @@ Route::put('/update-apt/{id}', [AppointmentController::class, 'update']);
 Route::get('/apt/{id}', [AppointmentController::class, 'find']);
 Route::get('/pending', [AppointmentController::class, 'pending']);
 Route::get('/accepted', [AppointmentController::class, 'accepted']);
+Route::get('/search-apt/{key}', [AppointmentController::class, 'search']);
 
 Route::get('/medcert', [ReqMedController::class, 'index']);
 Route::post('/reqmed', [ReqMedController::class, 'store']);
@@ -111,3 +113,6 @@ Route::get('/medrec', [MedicalRecordController::class, 'index']);
 Route::post('/addmedrec', [MedicalRecordController::class, 'store']);
 Route::get('/find-medrec/{id}', [MedicalRecordController::class, 'find']);
 
+Route::post('/medapp',[MedsController::class, 'store']);
+Route::get('/medhistory/{key}',[MedsController::class, 'index']);
+Route::get('/medall',[MedsController::class, 'all']);

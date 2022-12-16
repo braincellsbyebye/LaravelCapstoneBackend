@@ -14,9 +14,19 @@ class AppointmentController extends Controller
             'apt'=>$apt,
         ]);
     }
+    public function search($key)
+    {
+        $apt = Appointment::where('aptdate', 'Like', "%$key%")->get();
+        return response()->json([
+            'status'=> 200,
+            'apt'=>$apt,
+        ]);
+    }
     public function index()
     {
-        $apt = Appointment::where('aptcategory', 'Clinic')->get();
+        $apt = Appointment::where('aptcategory', 'Clinic')
+        ->orderBy('aptdate', 'asc')
+        ->get();
 
         return response()->json([
             'status'=> 200,
