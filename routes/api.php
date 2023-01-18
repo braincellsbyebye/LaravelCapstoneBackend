@@ -9,17 +9,6 @@ use App\Http\Controllers\ReqMedController;
 use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\MedsController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-
-Route::controller(AuthController::class)->group(function () {
-    Route::post('jwtlogin', 'login');
-    Route::post('jwtregister', 'register');
-    Route::get('jwtget/{id}', 'edit');
-    Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
-});
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/add-student', [StudentController::class, 'store']);
