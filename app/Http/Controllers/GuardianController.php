@@ -8,8 +8,10 @@ use App\Http\Controllers\Controller;
 
 class GuardianController extends Controller
 {
-    
-
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     public function index()
     {
         $guardian = Guardian::all();

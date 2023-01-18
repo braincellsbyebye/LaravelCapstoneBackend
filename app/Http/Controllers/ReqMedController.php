@@ -7,6 +7,10 @@ use App\Models\ReqMed;
 
 class ReqMedController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     public function index()
     {
         $reqmed = ReqMed::all();
@@ -21,7 +25,10 @@ class ReqMedController extends Controller
         $reqmed = new ReqMed();
         $reqmed->fname = $request->fname;
         $reqmed->lname = $request->lname;
+        $reqmed->date = $request->date;
         $reqmed->verdict = $request->verdict;
+        $reqmed->purpose = $request->purpose;
+        $reqmed->diagnosis = $request->diagnosis;
         $reqmed->doctor = $request->doctor;
         $reqmed->uid = $request->uid;
 
@@ -62,7 +69,10 @@ class ReqMedController extends Controller
         {
             $reqmed->fname = $request->fname;
             $reqmed->lname = $request->lname;
+            $reqmed->date = $request->date;
             $reqmed->verdict = $request->verdict;
+            $reqmed->purpose = $request->purpose;
+            $reqmed->diagnosis = $request->diagnosis;
             $reqmed->doctor = $request->doctor;
             $reqmed->uid = $request->uid;
 
