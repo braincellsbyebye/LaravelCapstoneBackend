@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class MedsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
     public function store(Request $request)
     {
         $meds = new MedsModel();
@@ -31,8 +27,7 @@ class MedsController extends Controller
     }
     public function index($key)
     {
-        $meds = MedsModel::where('user_id', '=', "$key")
-        ->get();
+        $meds = MedsModel::where('user_id', '=', "$key")->get();
         return response()->json([
             'status'=> 200,
             'meds'=>$meds

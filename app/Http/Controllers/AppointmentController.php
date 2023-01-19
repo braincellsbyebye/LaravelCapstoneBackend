@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
     public function all()
     {
         $apt = Appointment::all();
