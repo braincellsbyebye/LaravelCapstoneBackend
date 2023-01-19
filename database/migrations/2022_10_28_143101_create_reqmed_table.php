@@ -17,10 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('lname');
-            $table->string('date');
             $table->string('verdict');
-            $table->string('purpose');
-            $table->string('diagnosis');
             $table->string('doctor');
             $table->string('uid');
             $table->timestamps();
