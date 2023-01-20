@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    //test
+    //testing lang
     public function __construct()
     {
         $this->middleware('auth:api');
