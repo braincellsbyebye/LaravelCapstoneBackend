@@ -111,6 +111,7 @@ Route::get('/apt/{id}', [AppointmentController::class, 'find']);
 Route::get('/pending', [AppointmentController::class, 'pending']);
 Route::get('/accepted', [AppointmentController::class, 'accepted']);
 Route::get('/search-apt/{key}', [AppointmentController::class, 'search']);
+Route::get('/mh/{key}', [AppointmentController::class, 'medhistory']);
 
 Route::get('/medcert', [ReqMedController::class, 'index']);
 Route::post('/reqmed', [ReqMedController::class, 'store']);

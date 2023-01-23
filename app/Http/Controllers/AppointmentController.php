@@ -11,6 +11,16 @@ class AppointmentController extends Controller
     {
         $this->middleware('auth:api');
     }
+    public function medhistory($key)
+    {
+        $apt = Appointment::where('user_id', '=', "$key")
+        ->where('aptverify', '=', 'Accepted')
+        ->get();
+        return response()->json([
+            'status'=> 200,
+            'apt'=>$apt
+        ]);
+    }
     public function all()
     {
         $apt = Appointment::all();
